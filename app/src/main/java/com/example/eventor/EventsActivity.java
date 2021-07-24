@@ -18,10 +18,10 @@ import java.util.Calendar;
 
 public class EventsActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    Button toExplore, toCreate, logout;
+    Button toExplore, toCreate, logout, findfriends;
     boolean startdate;
     boolean startime;
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,14 @@ public class EventsActivity extends AppCompatActivity implements DatePickerDialo
         toCreate = findViewById(R.id.create);
         toExplore = findViewById(R.id.explore);
         logout = findViewById(R.id.logout);
+        findfriends = findViewById(R.id.findfriends);
+
+        findfriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            }
+        });
 
         starttime.setOnClickListener(new View.OnClickListener() {
             @Override
