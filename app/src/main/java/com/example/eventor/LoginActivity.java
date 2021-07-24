@@ -22,14 +22,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
     Button toEvents, toReg, login;
-    public static String ngrokID = "https://e16c423a5a63.ngrok.io";
+    public static String ngrokID = "https://97fbbbd24617.ngrok.io";
     private static String URL_LOGIN = ngrokID + "/eventor/login.php";
+    private static String GET_FRIENDS = ngrokID + "/eventor/getfriends.php";
     EditText memail, pass;
     public static User user;
 
@@ -46,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         toEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), EventsActivity.class));
+                Login("larry@gmail.com", "larry123");
             }
         });
 
@@ -94,9 +96,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                     user = new User(ID, fname, lname, email);
 
+                                    retrieveFriends();
+
                                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), EventsActivity.class));
 
 //                                        loading.setVisibility(View.GONE);
                                 }
@@ -133,6 +137,63 @@ public class LoginActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("password", password);
 
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    public void retrieveFriends(){
+        final ArrayList<User> tempList = new ArrayList<>();
+//        System.out.println("got here");
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, GET_FRIENDS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Log.e("anyText",response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.optJSONArray("getusers");
+
+
+                            if (success.equals("1")) {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject object = jsonArray.optJSONObject(i);
+                                    String email = object.getString("email").trim();
+                                    int id = object.getInt("id");
+                                    String fname = object.getString("fname");
+                                    String lname  = object.getString("lname");
+
+                                    System.out.println(fname + " " + lname);
+//                                        TODO: kqwdkwqmld
+                                    user.addFriend((new User(id, fname, lname, email)));
+                                }
+                            }
+
+//                            for (int i=0;i<tempList.size();i++){
+//                                System.out.println(tempList.get(i));
+//                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                            System.out.println(e.toString());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(LoginActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                        System.out.println(error.toString());
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", LoginActivity.user.getEmail());
                 return params;
             }
         };

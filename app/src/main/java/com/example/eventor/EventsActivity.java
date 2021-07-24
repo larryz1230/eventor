@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class EventsActivity extends AppCompatActivity {
 
-    Button toExplore, toCreate, logout;
+    Button toExplore, toCreate, logout, findfriends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,14 @@ public class EventsActivity extends AppCompatActivity {
         toCreate = findViewById(R.id.create);
         toExplore = findViewById(R.id.explore);
         logout = findViewById(R.id.logout);
+        findfriends = findViewById(R.id.findfriends);
+
+        findfriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            }
+        });
 
         toExplore.setOnClickListener(new View.OnClickListener() {
             @Override
