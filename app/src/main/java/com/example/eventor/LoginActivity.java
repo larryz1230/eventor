@@ -29,7 +29,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     Button toEvents, toReg, login;
-    public static String ngrokID = "https://97fbbbd24617.ngrok.io";
+    public static String ngrokID = "https://b9d574043948.ngrok.io";
     private static String URL_LOGIN = ngrokID + "/eventor/login.php";
     private static String GET_FRIENDS = ngrokID + "/eventor/getfriends.php";
     EditText memail, pass;
