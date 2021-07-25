@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,6 +56,10 @@ public class CreateActivity extends AppCompatActivity  implements DatePickerDial
         Button starttime = findViewById(R.id.button);
         Button endtime = findViewById(R.id.endtime);
 
+//        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.dateRangePicker();
+//        builder.setTitleText("Select Date Range");
+//        final MaterialDatePicker materialDatePicker = builder.build();
+
         starttime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,8 +80,9 @@ public class CreateActivity extends AppCompatActivity  implements DatePickerDial
             @Override
             public void onClick(View view) {
                 startdate = true;
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
+                 DialogFragment datePicker = new DatePickerFragment();
+                 datePicker.show(getSupportFragmentManager(), "date picker");
+                // materialDatePicker.show(getSupportFragmentManager(), "date_range_picker");
             }
         });
 

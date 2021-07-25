@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/header2"
         android:layout_width="415dp"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:background="#86E7B8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,51 +68,51 @@
 
     <Button
         android:id="@+id/findfriends"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/friends"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintHorizontal_bias="0.655"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/logout"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/create"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/explore"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/explore"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle"

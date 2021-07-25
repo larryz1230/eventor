@@ -7,6 +7,64 @@
     tools:context=".CreateActivity">
 
 
+    <ImageView
+        android:id="@+id/firstname4"
+        android:layout_width="211dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.579"
+        app:srcCompat="@drawable/eventlocation" />
+
+    <ImageView
+        android:id="@+id/firstname3"
+        android:layout_width="195dp"
+        android:layout_height="43dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.279"
+        app:srcCompat="@drawable/eventdescription" />
+
+    <ImageView
+        android:id="@+id/firstname2"
+        android:layout_width="122dp"
+        android:layout_height="43dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145"
+        app:srcCompat="@drawable/eventname" />
+
+    <TextView
+        android:id="@+id/header4"
+        android:layout_width="415dp"
+        android:layout_height="100dp"
+        android:background="#86E7B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/eventorImage2"
+        android:layout_width="225dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016"
+        app:srcCompat="@drawable/createanevent" />
 
     <TextView
         android:id="@+id/enddate"
@@ -15,10 +73,25 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.696" />
+
+    <EditText
+        android:id="@+id/eventlocation"
+        android:layout_width="321dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rect4"
+        android:ems="10"
+        android:hint="Event Location"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
     <TextView
         android:id="@+id/endtimedisplay"
@@ -26,10 +99,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintVertical_bias="0.806" />
 
     <Button
         android:id="@+id/datepicker2"
@@ -38,10 +111,10 @@
         android:text="End Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.712"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.711" />
 
     <TextView
         android:id="@+id/timedisplay"
@@ -49,10 +122,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintVertical_bias="0.807" />
 
     <Button
         android:id="@+id/datepicker"
@@ -61,10 +134,10 @@
         android:text="Start Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.726" />
 
     <Button
         android:id="@+id/endtime"
@@ -77,10 +150,10 @@
         android:text="End Time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.822" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <TextView
         android:id="@+id/datedisplay"
@@ -88,10 +161,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <Button
         android:id="@+id/button"
@@ -104,93 +177,87 @@
         android:text="Start Time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Event"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <EditText
         android:id="@+id/eventtitle"
         android:layout_width="321dp"
         android:layout_height="40dp"
+        android:background="@drawable/rect4"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Event Name"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.222" />
 
     <EditText
         android:id="@+id/eventdesc"
         android:layout_width="323dp"
         android:layout_height="164dp"
+        android:background="@drawable/rect15"
         android:ems="10"
-        android:hint="Event Description"
         android:gravity="start|top"
+        android:hint="Event Description"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.414" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="284dp"
         android:layout_height="68dp"
+        android:background="@drawable/rect4"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" >
+        app:layout_constraintVertical_bias="0.944">
 
-    <RadioButton
-        android:id="@+id/private1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Private"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.782"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
+        <RadioButton
+            android:id="@+id/private1"
+            android:layout_width="139dp"
+            android:layout_height="68dp"
+            android:text="Private"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.782"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.914" />
 
-    <RadioButton
-        android:id="@+id/public1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Public"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:checked="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
+        <RadioButton
+            android:id="@+id/public1"
+            android:layout_width="145dp"
+            android:layout_height="match_parent"
+            android:checked="true"
+            android:text="Public"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.273"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.914" />
 
     </RadioGroup>
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rect6"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
