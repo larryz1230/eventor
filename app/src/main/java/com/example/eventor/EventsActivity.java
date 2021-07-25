@@ -2,6 +2,7 @@ package com.example.eventor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,9 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.example.eventor.LoginActivity.ngrokID;
@@ -42,25 +45,90 @@ public class EventsActivity extends AppCompatActivity {
     private static String GET_EVENTS = ngrokID + "/eventor/getevents.php";
 
     private RecyclerView mRecyclerView;
-    private EventListAdapter mAdapter;
-
+//    private EventListAdapter mAdapter;
+    private List<Eventt> mSportsData;
+    private EventsAdapter mAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        putinlist();
+//        putinlist();
 
-        // Get a handle to the RecyclerView.
+//        // Get a handle to the RecyclerView.
+//        mRecyclerView = findViewById(R.id.recycle);
+//// Create an adapter and supply the data to be displayed.
+//        mAdapter = new EventListAdapter(getApplicationContext(), LoginActivity.user.getEvents());
+//// Connect the adapter with the RecyclerView.
+//        mRecyclerView.setAdapter(mAdapter);
+//// Give the RecyclerView a default layout manager.
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        // Initialize the RecyclerView.
         mRecyclerView = findViewById(R.id.recycle);
-// Create an adapter and supply the data to be displayed.
-        mAdapter = new EventListAdapter(getApplicationContext(), LoginActivity.user.getEvents());
-// Connect the adapter with the RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-// Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        // Set the Layout Manager.
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize the ArrayList that will contain the data.
+        mSportsData = new ArrayList<>();
+
+        // Initialize the adapter and set it to the RecyclerView.
+        mAdapter = new EventsAdapter(this, mSportsData);
+        mRecyclerView.setAdapter(mAdapter);
+
+        // Get the data.
+        initializeData();
+
+        // Helper class for creating swipe to dismiss and drag and drop
+        // functionality.
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper
+                .SimpleCallback(
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
+                        ItemTouchHelper.DOWN | ItemTouchHelper.UP,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            /**
+             * Defines the drag and drop functionality.
+             *
+             * @param recyclerView The RecyclerView that contains the list items
+             * @param viewHolder The SportsViewHolder that is being moved
+             * @param target The SportsViewHolder that you are switching the
+             *               original one with.
+             * @return true if the item was moved, false otherwise
+             */
+            @Override
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+                // Get the from and to positions.
+                int from = viewHolder.getAdapterPosition();
+                int to = target.getAdapterPosition();
+
+                // Swap the items and notify the adapter.
+                Collections.swap(mSportsData, from, to);
+                mAdapter.notifyItemMoved(from, to);
+                return true;
+            }
+
+            /**
+             * Defines the swipe to dismiss functionality.
+             *
+             * @param viewHolder The viewholder being swiped.
+             * @param direction The direction it is swiped in.
+             */
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder,
+                                 int direction) {
+                // Remove the item from the dataset.
+                mSportsData.remove(viewHolder.getAdapterPosition());
+                // Notify the adapter.
+                mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+            }
+        });
+
+        // Attach the helper to the RecyclerView.
+        helper.attachToRecyclerView(mRecyclerView);
 
 
 
@@ -112,23 +180,38 @@ public class EventsActivity extends AppCompatActivity {
 //        System.out.println(LoginActivity.user.getEventSize());
 
 
+
     }
 
+    private void initializeData() {
+        // Get the resources from the XML file.
 
 
 
-    public void putinlist() {
+        // Clear the existing data (to avoid duplication).
+        mSportsData.clear();
+
+        // Create the ArrayList of Sports objects with the titles and
+        // information about each sport
         for (int i = 0; i < LoginActivity.user.getEventSize(); i++) {
-            System.out.println(LoginActivity.user.getEvents().get(i).getEname().trim());
+            mSportsData.add(LoginActivity.user.getEvents().get(i));
         }
 
-        mRecyclerView = findViewById(R.id.recycle);
-// Create an adapter and supply the data to be displayed.
-        mAdapter = new EventListAdapter(getApplicationContext(), LoginActivity.user.getEvents());
-// Connect the adapter with the RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-// Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
+        // Notify the adapter of the change.
+        mAdapter.notifyDataSetChanged();
     }
+//    public void putinlist() {
+//        for (int i = 0; i < LoginActivity.user.getEventSize(); i++) {
+//            System.out.println(LoginActivity.user.getEvents().get(i).getEname().trim());
+//        }
+//
+//        mRecyclerView = findViewById(R.id.recycle);
+//// Create an adapter and supply the data to be displayed.
+//        mAdapter = new EventListAdapter(getApplicationContext(), LoginActivity.user.getEvents());
+//// Connect the adapter with the RecyclerView.
+//        mRecyclerView.setAdapter(mAdapter);
+//// Give the RecyclerView a default layout manager.
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//
+//    }
 }

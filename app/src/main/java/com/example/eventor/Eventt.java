@@ -1,7 +1,7 @@
 package com.example.eventor;
 
 public class Eventt {
-    private String ename, edesc, stime, etime, sday, eday;
+    private String ename, edesc, stime, etime, sday, eday, day, time;
     private int id, numjoined;
     public boolean ispublic;
 
@@ -15,6 +15,20 @@ public class Eventt {
         this.id = id;
         this.numjoined = numjoined;
         this.ispublic = ispublic;
+    }
+
+    public Eventt(String ename, String day, String time){
+        this.ename = ename;
+        this.day = day;
+        this.time = time;
+    }
+
+    public String getTime() {
+        return stime + " - " + etime;
+    }
+
+    public String getDay() {
+        return sday + " - " + eday;
     }
 
     public int getId() {

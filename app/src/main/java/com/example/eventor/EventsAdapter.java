@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
-    private List<event> mEventData;
+    private List<Eventt> mEventData;
     private Context mContext;
-    EventsAdapter(Context context, List<event> eventData){
+    EventsAdapter(Context context, List<Eventt> eventData){
         this.mEventData = eventData;
         this.mContext = context;
     }
@@ -29,7 +29,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
     public void onBindViewHolder(EventsAdapter.ViewHolder holder,
                                  int position) {
         // Get current sport.
-        event currentSport = mEventData.get(position);
+        Eventt currentSport = mEventData.get(position);
 
         // Populate the textviews with data.
         holder.bindTo(currentSport);
@@ -64,10 +64,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(event currentEvent){
+        void bindTo(Eventt currentEvent){
             // Populate the textviews with data.
-            mTitleText.setText(currentEvent.getEventname());
-            mDate.setText(currentEvent.getDate());
+            System.out.println(currentEvent.getSday());
+            mTitleText.setText(currentEvent.getEname());
+            mDate.setText(currentEvent.getDay());
             mTime.setText(currentEvent.getTime());
 
             // Load the images into the ImageView using the Glide library.
