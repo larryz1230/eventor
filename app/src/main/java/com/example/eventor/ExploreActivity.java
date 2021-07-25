@@ -12,7 +12,7 @@ import java.util.*;
 
 public class ExploreActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private List<event> mSportsData;
+    private List<Eventt> mSportsData;
     private EventsAdapter mAdapter;
 
     @Override
@@ -89,21 +89,24 @@ public class ExploreActivity extends AppCompatActivity {
 
     private void initializeData() {
         // Get the resources from the XML file.
-        String[] sportsList = getResources()
-                .getStringArray(R.array.sports_titles);
-        String[] sportsInfo = getResources()
-                .getStringArray(R.array.sports_info);
-        String[] eventtime = getResources()
-                .getStringArray(R.array.sports_info);
+        List<String> sportsList = new ArrayList<>();
+        List<String> sportsInfo = new ArrayList<>();
+        List<String> eventtime = new ArrayList<>();
+        for (int i = 0; i < LoginActivity.user.getEventSize(); i++) {
+            sportsList.add(LoginActivity.user.getEvents().get(i).getEname().trim());
+            sportsInfo.add(LoginActivity.user.getEvents().get(i).getSday().trim() + " - " + LoginActivity.user.getEvents().get(i).getEday().trim());
+            eventtime.add(LoginActivity.user.getEvents().get(i).getStime().trim() + " - " + LoginActivity.user.getEvents().get(i).getEtime().trim());
+        }
+
 
         // Clear the existing data (to avoid duplication).
         mSportsData.clear();
 
         // Create the ArrayList of Sports objects with the titles and
         // information about each sport
-        for (int i = 0; i < sportsList.length; i++) {
-            mSportsData.add(new event(sportsList[i], sportsInfo[i],
-                    eventtime[i]));
+        for (int i = 0; i < sportsList.size(); i++) {
+            mSportsData.add(new Eventt(sportsList.get(i), sportsInfo.get(i),
+                    eventtime.get(i)));
         }
 
         // Notify the adapter of the change.
