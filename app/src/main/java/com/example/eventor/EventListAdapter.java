@@ -40,7 +40,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
     @Override
     public void onBindViewHolder(@NonNull EventListAdapter.EventViewHolder holder, int position) {
-        String mCurrent = eventList.get(position).getEname();
+        String mCurrent = eventList.get(position).getSday();
 //        System.out.println(position);
         holder.wordItemView.setText(mCurrent);
     }
@@ -71,6 +71,12 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             edetailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             System.out.println(currevent.getEname());
             edetailIntent.putExtra("title", currevent.getEname());
+            edetailIntent.putExtra("desc", currevent.getEdesc());
+            edetailIntent.putExtra("startday", currevent.getSday());
+            edetailIntent.putExtra("endday", currevent.getEday());
+            edetailIntent.putExtra("starttime", currevent.getStime());
+            edetailIntent.putExtra("endtime", currevent.getEtime());
+
 //            detailIntent.putExtra("image_resource",
 //                    currentSport.getImageResource());
             mContext.startActivity(edetailIntent);

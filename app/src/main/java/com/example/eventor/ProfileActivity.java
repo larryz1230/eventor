@@ -63,20 +63,20 @@ public class ProfileActivity extends AppCompatActivity {
             fff.add(LoginActivity.user.getFriends().get(i%LoginActivity.user.getFriends().size()));
         }
 
-        mySwipeRefreshLayout = findViewById(R.id.swiperefresh);
-
-        mySwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        Log.i("Profile Activity", "onRefresh called from SwipeRefreshLayout");
-
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
-//                        myUpdateOperation();
-                    }
-                }
-        );
+//        mySwipeRefreshLayout = findViewById(R.id.swiperefresh);
+//
+//        mySwipeRefreshLayout.setOnRefreshListener(
+//                new SwipeRefreshLayout.OnRefreshListener() {
+//                    @Override
+//                    public void onRefresh() {
+//                        Log.i("Profile Activity", "onRefresh called from SwipeRefreshLayout");
+//
+//                        // This method performs the actual data-refresh operation.
+//                        // The method calls setRefreshing(false) when it's finished.
+////                        myUpdateOperation();
+//                    }
+//                }
+//        );
 
 
 
