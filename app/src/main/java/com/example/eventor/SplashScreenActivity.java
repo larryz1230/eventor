@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class SplashScreenActivity extends Activity {
 
-    private static final int SPLASH_SHOW_TIME = 5000;
+    private static final int SPLASH_SHOW_TIME = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,9 @@ public class SplashScreenActivity extends Activity {
             return null;
         }
 
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
             Intent i = new Intent(SplashScreenActivity.this,
                     EventsActivity.class);
             // any info loaded can during splash_show
@@ -53,5 +54,7 @@ public class SplashScreenActivity extends Activity {
             startActivity(i);
             finish();
         }
+
+
     }
 }

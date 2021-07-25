@@ -103,8 +103,8 @@ public class EventsActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), EventsActivity.class));
-                putinlist();
+                startActivity(new Intent(getApplicationContext(), EventsActivity.class));
+//                putinlist();
             }
         });
 
