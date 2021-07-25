@@ -30,7 +30,7 @@ import static com.example.eventor.LoginActivity.ngrokID;
 
 public class SplashScreenActivity extends Activity {
 
-    private static final int SPLASH_SHOW_TIME = 2000;
+    private static final int SPLASH_SHOW_TIME = 500;
     private static String GET_FRIENDS = ngrokID + "/eventor/getfriends.php";
     private static String GET_EVENTS = ngrokID + "/eventor/getevents.php";
 
