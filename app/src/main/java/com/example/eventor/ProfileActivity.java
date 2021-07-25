@@ -1,6 +1,10 @@
 package com.example.eventor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+//import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,20 +21,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.Friendor.FriendListAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
     Button addfriend;
+    RecyclerView mRecyclerView, amRecyclerView;
+    com.example.Friendor.FriendListAdapter mAdapter;
     EditText femail;
     private String URL_CREDITS = LoginActivity.ngrokID + "/eventor/findfriend.php";
     private String URL_ADD = LoginActivity.ngrokID + "/eventor/addfriend.php";
+    SwipeRefreshLayout mySwipeRefreshLayout;
     private User tempuser;
 
     @Override
@@ -47,6 +56,51 @@ public class ProfileActivity extends AppCompatActivity {
                 addFriend(femail.getText().toString().trim());
             }
         });
+
+
+        ArrayList<User> fff = new ArrayList<>();
+        for (int i =0; i<13; i++){
+            fff.add(LoginActivity.user.getFriends().get(i%LoginActivity.user.getFriends().size()));
+        }
+
+        mySwipeRefreshLayout = findViewById(R.id.swiperefresh);
+
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Log.i("Profile Activity", "onRefresh called from SwipeRefreshLayout");
+
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+//                        myUpdateOperation();
+                    }
+                }
+        );
+
+
+
+
+
+        // Get a handle to the RecyclerView.
+        mRecyclerView = findViewById(R.id.recycle);
+// Create an adapter and supply the data to be displayed.
+        mAdapter = new FriendListAdapter(getApplicationContext(), LoginActivity.user.getFriends());
+// Connect the adapter with the RecyclerView.
+        mRecyclerView.setAdapter(mAdapter);
+// Give the RecyclerView a default layout manager.
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+
+        // Get a handle to the RecyclerView.
+        amRecyclerView = findViewById(R.id.recycle1);
+// Create an adapter and supply the data to be displayed.
+        mAdapter = new FriendListAdapter(getApplicationContext(), fff);
+// Connect the adapter with the RecyclerView.
+        amRecyclerView.setAdapter(mAdapter);
+// Give the RecyclerView a default layout manager.
+        amRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
     private void addFriend (final String email){

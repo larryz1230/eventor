@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button toEvents, toReg, login;
   
-    public static String ngrokID = "https://c5863d7eff9f.ngrok.io";
+    public static String ngrokID = "https://ad2b72856ad8.ngrok.io";
 
     private static String URL_LOGIN = ngrokID + "/eventor/login.php";
     private static String GET_FRIENDS = ngrokID + "/eventor/getfriends.php";
