@@ -103,7 +103,7 @@ public class EventsActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), EventsActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 //                putinlist();
             }
         });
@@ -115,135 +115,7 @@ public class EventsActivity extends AppCompatActivity {
     }
 
 
-//    public void retrieveFriends(){
-//        final ArrayList<User> tempList = new ArrayList<>();
-////        System.out.println("got here");
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, GET_FRIENDS,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try {
-////                            Log.e("anyText",response);
-//                            JSONObject jsonObject = new JSONObject(response);
-//                            String success = jsonObject.getString("success");
-//                            JSONArray jsonArray = jsonObject.optJSONArray("getusers");
-//
-//
-//                            if (success.equals("1")) {
-//                                for (int i = 0; i < jsonArray.length(); i++) {
-//                                    JSONObject object = jsonArray.optJSONObject(i);
-//                                    String email = object.getString("email").trim();
-//                                    int id = object.getInt("id");
-//                                    String fname = object.getString("fname");
-//                                    String lname  = object.getString("lname");
-//
-////                                    System.out.println(fname + " " + lname);
-////                                        TODO: kqwdkwqmld
-//                                    LoginActivity.user.addFriend((new User(id, fname, lname, email)));
-//                                }
-//                            }
-//
-////                            for (int i=0;i<tempList.size();i++){
-////                                System.out.println(tempList.get(i));
-////                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                            Toast.makeText(EventsActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-//                            System.out.println(e.toString());
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(EventsActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
-//                        System.out.println(error.toString());
-//                    }
-//                }) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("email", LoginActivity.user.getEmail());
-//                return params;
-//            }
-//        };
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-//        requestQueue.add(stringRequest);
-//
-//
-//
-//
-//    }
-//
-//
-//
-//    public void retrieveEvents(){
-//        final ArrayList<User> tempList = new ArrayList<>();
-////        System.out.println("got here");
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, GET_EVENTS,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try {
-//                            Log.e("anyText",response);
-//                            JSONObject jsonObject = new JSONObject(response);
-//                            String success = jsonObject.getString("success");
-//                            JSONArray jsonArray = jsonObject.optJSONArray("getusers");
-//
-//
-//                            if (success.equals("1")) {
-//                                for (int i = 0; i < jsonArray.length(); i++) {
-//                                    JSONObject object = jsonArray.optJSONObject(i);
-//                                    String ename = object.getString("ename").trim();
-//                                    String edesc = object.getString("edesc").trim();
-//                                    String stime = object.getString("estart").trim();
-//                                    String etime = object.getString("eend").trim();
-//                                    String sday = object.getString("startday").trim();
-//                                    String eday = object.getString("endday").trim();
-//                                    int id = object.getInt("id");
-//                                    int numjoined = object.getInt("numjoined");
-//                                    String pub = object.getString("public").trim();
-//                                    boolean ispublic = false;
-//                                    if (pub.equals("true")){
-//                                        ispublic = true;
-//                                    }
-////                                    System.out.println(eday);
-//
-//                                    LoginActivity.user.addEventt(new Eventt(ename, edesc, stime, etime, sday, eday, id, numjoined, ispublic));
-//                                }
-//
-//
-//                            }
-//
-////                            for (int i=0;i<tempList.size();i++){
-////                                System.out.println(tempList.get(i));
-////                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                            Toast.makeText(EventsActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-//                            System.out.println(e.toString());
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(EventsActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
-//                        System.out.println(error.toString());
-//                    }
-//                }) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("email", LoginActivity.user.getEmail());
-//                return params;
-//            }
-//        };
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        requestQueue.add(stringRequest);
-//    }
+
 
     public void putinlist() {
         for (int i = 0; i < LoginActivity.user.getEventSize(); i++) {

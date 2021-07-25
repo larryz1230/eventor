@@ -97,8 +97,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                     user = new User(ID, fname, lname, email);
 
-                                    retrieveFriends();
-                                    retrieveEvents();
+//                                    retrieveFriends();
+//                                    retrieveEvents();
 
                                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
