@@ -65,13 +65,15 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.136" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="382dp"
-        android:layout_height="433dp"
+        android:id="@+id/recycle"
+        android:layout_width="380dp"
+        android:layout_height="403dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

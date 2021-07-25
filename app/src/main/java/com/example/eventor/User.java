@@ -6,6 +6,7 @@ public class User {
     private int id;
     private String fname, lname, email;
     private ArrayList <User> friends;
+    private  ArrayList <Eventt> events;
 
     public User (int id, String fname, String lname, String email){
         this.id = id;
@@ -13,6 +14,7 @@ public class User {
         this.lname = lname;
         this.email = email;
         friends = new ArrayList<>();
+        events = new ArrayList<>();
     }
 
     public String getLname() {
@@ -37,5 +39,17 @@ public class User {
 
     public void addFriend (User u){
         friends.add(u);
+    }
+
+    public ArrayList<Eventt> getEvents() {
+        return events;
+    }
+
+    public void addEventt(Eventt e){
+        events.add(e);
+    }
+
+    public int getEventSize(){
+        return events.size();
     }
 }
